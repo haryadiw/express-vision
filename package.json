@@ -1,0 +1,61 @@
+{
+  "name": "express-template",
+  "description": "express template",
+  "version": "0.0.5",
+  "private": true,
+  "author": "aaronjxz@gmail.com",
+  "license": "MIT",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/es-labs/express-template"
+  },
+  "bugs": {
+    "url": "https://github.com/es-labs/express-template/issues"
+  },
+  "homepage": "https://github.com/es-labs/express-template#readme",
+  "keywords": [
+    "nodejs",
+    "express"
+  ],
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9"
+  },
+  "scripts": {
+    "app": "node --trace-warnings --watch --watch-path=./apps index.js",
+    "build:lib": "npm i @es-labs/node@latest",
+    "git:hash": "git rev-parse --verify --short HEAD",
+    "git:branch": "git rev-parse --abbrev-ref HEAD",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix --no-fix-warnings --no-report-warnings .",
+    "prepare": "git config core.hooksPath ./git-hooks || echo 'Can not set git hooks'",
+    "prettier:check": "prettier --check apps/**/*.{js,json}",
+    "prettier:write": "prettier --write apps/**/*.{js,json}",
+    "start": "NODE_ENV=development npm run app",
+    "start:win": "set NODE_ENV=development&&npm run app",
+    "test": "NODE_ENV=development node --test --test-only",
+    "test:win": "set NODE_ENV=development&&node --test --test-only",
+    "test:env:win": "set EDITOR=vim && echo $EDITOR",
+    "test:e2e": "start-server-and-test start http://localhost:8080 test",
+    "update-commit-hash": "git rev-parse --verify --short HEAD > commit-hash"
+  },
+  "dependencies": {
+    "@es-labs/esm": "^0.0.21",
+    "@es-labs/node": "^0.0.39",
+    "esm": "^3.2.25",
+    "express": "^4.19.2",
+    "express-jsdoc-swagger": "^1.8.0",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.6.0",
+    "node-mocks-http": "^1.15.0",
+    "prettier": "^3.3.2",
+    "start-server-and-test": "^2.0.4"
+  }
+}
